@@ -20,6 +20,7 @@ collaborative_notes: [https://pad.carpentries.org/BetterLab_ENES_Genomics_202106
 eventbrite:           # optional: alphanumeric key for Eventbrite registration, e.g., "1234567890AB" (if Eventbrite is being used)
 ---
 
+[Maquinas disponibles](https://docs.google.com/spreadsheets/d/1Qv2t6iaHYQY8UJdmoq8tKzavNmecgETQP684zY-tO1o/edit#gid=0)
 {% comment %} See instructions in the comments below for how to edit specific sections of this workshop template. {% endcomment %}
 
 {% comment %}
