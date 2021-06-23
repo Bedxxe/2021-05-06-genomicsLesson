@@ -1,26 +1,28 @@
 ---
 layout: workshop      # DON'T CHANGE THIS.
+# More detailed instructions (including how to fill these variables for an
+# online workshop) are available at
+# https://carpentries.github.io/workshop-template/customization/index.html
 venue: "BetterLab"        # brief name of the institution that hosts the workshop without address (e.g., "Euphoric State University")
 address: "Parque de Innovación AGROBIOTEG Av. Camino Real De Guanajuato, 36547 Irapuato, Guanajuato · 5.37 km."      # full street address of workshop (e.g., "Room A, 123 Forth Street, Blimingen, Euphoria"), videoconferencing URL, or 'online'
 country: "mx"      # lowercase two-letter ISO country code such as "fr" (see https://en.wikipedia.org/wiki/ISO_3166-1#Current_codes) for the institution that hosts the workshop
 language: "es"     # lowercase two-letter ISO language code such as "fr" (see https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) for the
 latitude: "45"        # decimal latitude of workshop venue (use https://www.latlong.net/)
 longitude: "-1"       # decimal longitude of the workshop venue (use https://www.latlong.net)
-humandate: "23 Jun - 26 Jul, 2021"    # human-readable dates for the workshop (e.g., "Feb 17-18, 2020")
+humandate: "30 Jun - 3 Jul, 2021"    # human-readable dates for the workshop (e.g., "Feb 17-18, 2020")
 humantime: "3:00 pm - 6:00 pm, 9:00 am - 4:30 pm"    # human-readable times for the workshop (e.g., "9:00 am - 4:30 pm")
-startdate: 2021-06-23      # machine-readable start date for the workshop in YYYY-MM-DD format like 2015-01-01
-enddate: 2021-06-26        # machine-readable end date for the workshop in YYYY-MM-DD format like 2015-01-02
-instructor: ["Abraham Avelar","Nelly Selem","Vanessa Arellano"] # boxed, comma-separated list of instructors' names as strings, like ["Kay McNulty", "Betty Jennings", "Betty Snyder"]
-helper: ["Claudia Zirión","Diego Garfias", "Noe García", "Ricardo Avelar", "Mauricio Ruiz", ""Diana-Oaxaca]     # boxed, comma-separated list of helpers' names, like ["Marlyn Wescoff", "Fran Bilas", "Ruth Lichterman"]
-email: ["betterlabc@gmail.com"]   
+startdate: 2021-06-30      # machine-readable start date for the workshop in YYYY-MM-DD format like 2015-01-01
+enddate: 2021-07-03        # machine-readable end date for the workshop in YYYY-MM-DD format like 2015-01-02
+instructor: ["Diego Garfias", "Claudia Zirión", "Aarón Jaime"] # boxed, comma-separated list of instructors' names as strings, like ["Kay McNulty", "Betty Jennings", "Betty Snyder"]
+helper: ["Vanessa Arellano", "Nelly Sélem", "Ricardo Avelar", "Abel Lovaco", "Diana Oaxaca", "Abraham Avelar", "Mauricio Ruiz"]     # boxed, comma-separated list of helpers' names, like ["Marlyn Wescoff", "Fran Bilas", "Ruth Lichterman"]
+email: ["betterlabc@gmail.com","nselem84@gmail.com"]    # boxed, comma-separated list of contact email addresses for the host, lead instructor, or whoever else is handling questions, like ["marlyn.wescoff@example.org", "fran.bilas@example.org", "ruth.lichterman@example.org"]
 collaborative_notes:  # optional: URL for the workshop collaborative notes, e.g. an Etherpad or Google Docs document (e.g., https://pad.carpentries.org/2015-01-01-euphoria)
 eventbrite:           # optional: alphanumeric key for Eventbrite registration, e.g., "1234567890AB" (if Eventbrite is being used)
 ---
 
+{% comment %} See instructions in the comments below for how to edit specific sections of this workshop template. {% endcomment %}
 
-[Maquinas disponibles](https://docs.google.com/spreadsheets/d/1Qv2t6iaHYQY8UJdmoq8tKzavNmecgETQP684zY-tO1o/edit#gid=0)
-[Notas colaborativas](https://pad.carpentries.org/BetterLab_ENES_Genomics_20210623)
-
+{% comment %}
 HEADER
 
 Edit the values in the block above to be appropriate for your workshop.
@@ -29,24 +31,29 @@ double quotation marks around the value, unless specified otherwise.
 And run 'make workshop-check' *before* committing to make sure that changes are good.
 {% endcomment %}
 
-
-{% comment %}
-8< ============= For a workshop delete from here =============
-
-8< ============================= until here ==================
-{% endcomment %}
-
-
 {% comment %}
 Check DC curriculum
 {% endcomment %}
 
-
+{% if site.carpentry == "dc" %}
+{% unless site.curriculum == "dc-ecology" or site.curriculum == "dc-genomics" or site.curriculum == "dc-socsci" or site.curriculum == "dc-geospatial" %}
+<div class="alert alert-warning">
+It looks like you are setting up a website for a Data Carpentry curriculum but you haven't specified the curriculum type in the <code>_config.yml</code> file (current value in <code>_config.yml</code>: "<strong>{{ site.curriculum }}</strong>", possible values: <code>dc-ecology</code>, <code>dc-genomics</code>, <code>dc-socsci</code>, or <code>dc-geospatial</code>). After editing this file, you need to run <code>make serve</code> again to see the changes reflected.
+</div>
+{% endunless %}
+{% endif %}
 
 {% comment %}
 Check SWC curriculum
 {% endcomment %}
 
+{% if site.carpentry == "swc" %}
+{% unless site.curriculum == "swc-inflammation" or site.curriculum == "swc-gapminder" %}
+<div class="alert alert-warning">
+It looks like you are setting up a website for a Software Carpentry curriculum but you haven't specified the curriculum type in the <code>_config.yml</code> file (current value in <code>_config.yml</code>: "<strong>{{ site.curriculum }}</strong>", possible values: <code>swc-inflammation</code>, or <code>swc-gapminder</code>). After editing this file, you need to run <code>make serve</code> again to see the changes reflected.
+</div>
+{% endunless %}
+{% endif %}
 
 {% comment %}
 EVENTBRITE
@@ -292,7 +299,13 @@ We will use this <a href="{{ page.collaborative_notes }}">collaborative document
 <hr/>
 {% endif %}
 
-
+<h2 id="Remote Servers">Remote Servers</h2>  
+<p>
+You can log-in to the remote server using 
+<a href="http://www.datacarpentry.org/cloud-genomics/02-logging-onto-cloud/#logging-onto-a-cloud-instance">these instructions</a>.<br>
+<a href="https://docs.google.com/spreadsheets/d/1rfCyXHoK16NJi1mDbtWj-p2Na7t3yd7QpTulK0MJwC8/edit?usp=sharing">Here</a>, you will find an ip-adress to connect to your remote server. Each one will have a different adress to prevent us from accidentally changing each other's files as we work through the exercises. The password will be the same for everyone, ask your instructor!  
+</p>
+  
 {% comment %}
 SURVEYS - DO NOT EDIT SURVEY LINKS
 {% endcomment %}
@@ -342,52 +355,10 @@ of code below the Schedule `<h2>` header below with
 
 <h2 id="schedule">Schedule</h2>
 
-{% if site.carpentry == "swc" %}
-{% include swc/schedule.html %}
-{% elsif site.carpentry == "dc" %}
-{% include dc/schedule.html %}
-{% elsif site.carpentry == "lc" %}
-{% include lc/schedule.html %}
-{% elsif site.carpentry == "pilot" %}
-The lesson taught in this workshop is being piloted and a precise schedule is yet to be established. The workshop will include regular breaks. If you would like to know the timing of these breaks in advance, please [contact the workshop organisers](#contact). For a list of lesson sections and estimated timings, [visit the lesson homepage]({{ site.lesson_site }}).
-{% comment %}
-Edit/replace the text above if you want to include a schedule table.
-See the contents of the _includes/custom_schedule.html file for an example of
-how one of these schedule tables is constructed.
-{% endcomment %}
-{% endif %}
+{% include custom-schedule.html %}
 
 <hr/>
 
-
-{% comment %}
-SYLLABUS
-
-Show what topics will be covered.
-
-1. If your workshop is R rather than Python, remove the comment
-around that section and put a comment around the Python section.
-2. Some workshops will delete SQL.
-3. Please make sure the list of topics is synchronized with what you
-intend to teach.
-4. You may need to move the div's with class="col-md-6" around inside
-the div's with class="row" to balance the multi-column layout.
-
-This is one of the places where people frequently make mistakes, so
-please preview your site before committing, and make sure to run
-'tools/check' as well.
-{% endcomment %}
-<h2 id="syllabus">Syllabus</h2>
-
-{% if site.carpentry == "swc" %}
-{% include swc/syllabus.html %}
-{% elsif site.carpentry == "dc" %}
-{% include dc/syllabus.html %}
-{% elsif site.carpentry == "lc" %}
-{% include lc/syllabus.html %}
-{% endif %}
-
-<hr/>
 
 {% comment %}
 SETUP
