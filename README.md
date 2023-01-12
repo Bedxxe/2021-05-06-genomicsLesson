@@ -2,4 +2,4 @@
 BetterLab
 2021-06-23
 
-https://bedxxe.github.io/2021-06-23-Genomics/
+https://bedxxe.github.io/2021-06-23-Genomics-online/
